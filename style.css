@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: #182641;
+}
+
+/* Styles */
+
+.nav {
+    line-height: normal;
+    height: auto;
+    padding: 15px 30px 15px;
+    background: #1E2D4B;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav__logo {
+    font-size: 25px;
+}
+.nav__list {
+    font-size: 18px;
+}
+
+/* Player */
+
+.player-wrapper {
+    background: #213355;
+    margin: 35px auto 0;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 30px;
+    border-radius: 15px;
+}
+
+.player-wrapper__img {
+    width: 250px;
+}

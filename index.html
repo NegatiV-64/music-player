@@ -1,12 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music Player</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Custom -->
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
+
+    <header class="header">
+        <nav class="nav">
+            <a class="nav__logo">Music Player</a>
+            <ul class="nav__list">
+                <li><a href="#!">My GitHub</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="player">
+            <div class="container player__container">
+                <div class="player-wrapper">
+                    <img class="player-wrapper__img" src="./res/cover.jpg" alt="">
+                    <p class="player-wrapper__info">
+                        Some Text
+                    </p>
+                    <audio controls src="./res/05 - Kavinsky - Rampage.mp3"></audio>
+                    <div class="player-wrapper__durHolder">
+                        <div class="player-wrapper__duration">
+                            <div class="player-wrapper__durationFill"></div>
+                        </div>
+                        <div class="player-wrapper__time">
+                            <span class="player-wrapper__timeStart">00:00</span>
+                            <span class="player-wrapper__timeSlash">/</span>
+                            <span class="player-wrapper__timeEnd">00:00</span>
+                        </div>
+                    </div>
+                    <div class="player-wrapper__controls">
+                        <button class="player-wrapper_btnPrev">
+                            <span class="material-icons-round">
+                                skip_previous
+                            </span>
+                        </button>
+
+                        <button class="player-wrapper_btnPlay">
+                            <span class="material-icons-round">
+                                play_arrow
+                            </span>
+                        </button>
+
+                        <!-- 
+                        <button class="player-wrapper_btnPause">
+                            <span class="material-icons-round">
+                                pause
+                            </span>
+                        </button> 
+                        -->
+
+                        <button class="player-wrapper_btnPrev">
+                            <span class="material-icons-round">
+                                skip_next
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Designed by Bektemirov Aziz</p>
+    </footer>
+
+    <script src="./script.js"></script>
 </body>
+
 </html>
