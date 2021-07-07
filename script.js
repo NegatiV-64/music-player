@@ -9,7 +9,9 @@ let audio = document.querySelector('.player-wrapper audio'),
     trackProgressBar = document.querySelector('.player-wrapper__durationFill'),
     trackName = document.querySelector('.player-wrapper__info'),
     counter = 0,
-    playBtnSpan = document.querySelector('.player-wrapper_btnPlay span');
+    playBtnSpan = document.querySelector('.player-wrapper_btnPlay span'),
+    volumeElement = document.querySelector('.player-wrapper_btnVol'),
+    volumeBarWrapper = document.querySelector('.player-wrapper__volumeBarProgress');
 // Using the audio API
 
 playBtn.addEventListener("click", audioPlayHandler);
@@ -25,14 +27,27 @@ function audioPlayHandler(e) {
     }
 }
 
+// Filling the length of the track and progress bar
 audio.addEventListener("loadedmetadata", function () {
     let durationTime = timeConverter(audio.duration);
     trackDurationTime.innerHTML = durationTime;
+    let length = audio.currentTime / audio.duration * trackProgress.clientWidth
+    trackProgressBar.style.width = `${length}px`
 });
 audio.addEventListener("timeupdate", () => {
     let currentTime = timeConverter(audio.currentTime);
     trackCurrentTime.innerHTML = currentTime;
+    let length = audio.currentTime / audio.duration * trackProgress.clientWidth
+    trackProgressBar.style.width = `${length}px`
 });
+
+// Adding listeners to the bars
+trackProgress.addEventListener("click", trackClickHandler);
+trackProgressBar.addEventListener("click", trackClickHandler);
+
+function trackClickHandler(e) {
+    audio.currentTime = e.offsetX / trackProgress.offsetWidth * audio.duration;
+}
 
 // Converting the audio time
 function timeConverter(time) {
@@ -54,6 +69,24 @@ let urlTrack = audio.src.replace('.mp3', "").split("/"),
     tempNameTrack = urlTrack[urlTrack.length - 1].split("%20-%20"),
     fullNameTrack = `${tempNameTrack[0]} - ${tempNameTrack[1]} - ${tempNameTrack[2]}`;
 trackName.innerHTML = fullNameTrack;
+
+
+// Handler for the drag
+
+volumeBarWrapper.addEventListener("click", (e) => {
+    let barHeight = (e.offsetY * 100 / volumeBarWrapper.offsetHeight);
+    console.log(e.offsetY);
+    console.log(volumeBarWrapper.offsetHeight);
+    document.querySelector('.player-wrapper__volumeBarProgressActual').style.height = `${barHeight}px` 
+    if (barHeight > volumeBarWrapper.offsetHeight) {
+        document.querySelector('.player-wrapper__volumeBarProgressActual').style.height = `${volumeBarWrapper.offsetHeight}px`
+    }
+    if (barHeight < 4) {
+        document.querySelector('.player-wrapper__volumeBarProgressActual').style.height = "0px"
+    }
+})
+
+
 
 
 // Test
