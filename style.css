@@ -29,6 +29,7 @@ body {
 .nav__logo {
     font-size: 25px;
 }
+
 .nav__list {
     font-size: 18px;
 }
@@ -48,4 +49,126 @@ body {
 
 .player-wrapper__img {
     width: 250px;
+}
+
+.player-wrapper__info {
+    font-size: 20px;
+    color: #fff;
+    margin: 15px 0 10px;
+}
+
+.player-wrapper__durHolder {
+    width: 100%;
+}
+
+.player-wrapper__duration {
+    height: 5px;
+    width: 100%;
+    background: rgb(133, 133, 133);
+    border-radius: 15px;
+    transition: 0.2s;
+}
+
+.player-wrapper__durationFill {
+    border-radius: 15px;
+    transition: 0.2s;
+    height: 100%;
+    background: white;
+}
+
+.player-wrapper__time {
+    font-size: 14px;
+    color: white;
+    margin: 5px 0 0;
+    text-align: center;
+}
+
+.player-wrapper__controls {
+    margin-top: 15px;
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center
+}
+
+.player-wrapper__controlsState {
+    display: flex;
+}
+
+.player-wrapper__controlsState button {
+    outline: none;
+    border: none;
+    height: 30px;
+    background: white;
+    border-radius: 50%;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #182641;
+    margin: 0 5px;
+}
+
+.player-wrapper__controlsVolume {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.player-wrapper_btnVol {
+    outline: none;
+    border: none;
+    color: white;
+    height: 30px;
+    background: none;
+    border-radius: 50%;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 5px;
+    backface-visibility: hidden !important;
+}
+
+.player-wrapper__controlsVolume:hover .player-wrapper__volumeBar {
+    opacity: 1;
+    z-index: 1;
+}
+
+.player-wrapper__volumeBar {
+    backface-visibility: hidden !important;
+    transition: 0.2s;
+    opacity: 0;
+    z-index: -1;
+    padding: 15px;
+    background: #182641;
+    height: 120px;
+    border-radius: 25px;
+    position: absolute;
+    top: -410%;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: rgb(24 38 65) 0px 8px 24px;
+}
+
+.player-wrapper__volumeBar_active {
+    opacity: 1;
+    z-index: 1;
+}
+
+.player-wrapper__volumeBarProgress {
+    margin-top: auto;
+    height: 100%;
+    width: 3px;
+    background: rgb(133, 133, 133);
+    transform: rotate(180deg);
+}
+
+.player-wrapper__volumeBarProgressActual {
+    width: 100%;
+    height: 30%;
+    background: white;
+    position: relative;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
 }
